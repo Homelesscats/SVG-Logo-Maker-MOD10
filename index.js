@@ -27,21 +27,34 @@ const questions =
   {
   type: 'input',
   name: 'Text-Color',
-  message: 'Please enter a text color', // Be sure to allow keyword or hexadecimal number 
+  message: 'Please enter a text color or hexadecimal:', // Be sure to allow keyword or hexadecimal number 
   }, 
 
   {
    type: 'list',
    name: 'shape',
    message: 'Please select a shape',
-   choices: ['circle, triangle, square',]
+   choices: ['Circle, Triangle, Square',]
   },
 
   {
    type: 'input',
-   name: 'color',
-   message:'Please enter a color for the shape', // Be sure to allow keyword or hexadecimal number 
+   name: 'shapeColor',
+   message:'Please select a color or enter a hexadecimal for the shape', // Be sure to allow keyword or hexadecimal number 
   },
   
 ]
 
+// Writes file Completed SVG:
+
+inquirer.prompt(questions).then(answers => {
+  const { text, textColor, shape, shapeColor } = answers;
+  const logo = generateLogo(text, textColor, shape, shapeColor);
+  fs.writeFile('./logo.svg', logo, err => {
+    if (err) {
+      console.log('Error writing file:', err);
+    } else {
+     console.log("Generated logo.svg");
+    }
+  });
+});
