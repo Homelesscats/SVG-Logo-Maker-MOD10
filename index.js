@@ -1,21 +1,32 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+const { Circle, Square, Triangle } = require('./shape');
 
 
-const questions = 
-
+// questions for the creation of the new logo:
+const questions =  
 
 [
-  {
-  type: 'input',
-  name: 'text',
-  message: 'Please enter text',    // This will need to be set enter up to 3 characters 
-  },
+
 
   {
   type: 'input',
-  name: 'text',
+  name: 'Logo Name ',
+  message: 'Please enter text, cannot be more than 3 letters',    
+  validate: text => {
+     if (text.length > 3) {
+       return 'Text must not exceed 3 characters';
+
+     }
+     return true; 
+  } 
+
+},
+
+  {
+  type: 'input',
+  name: 'Text-Color',
   message: 'Please enter a text color', // Be sure to allow keyword or hexadecimal number 
   }, 
 
@@ -23,16 +34,14 @@ const questions =
    type: 'list',
    name: 'shape',
    message: 'Please select a shape',
-   choices: 'circle, triangle, square',
+   choices: ['circle, triangle, square',]
   },
 
   {
    type: 'input',
-   name: 'name',
+   name: 'color',
    message:'Please enter a color for the shape', // Be sure to allow keyword or hexadecimal number 
   },
-
-
-];
-
+  
+]
 
