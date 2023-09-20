@@ -1,7 +1,7 @@
 {
   "name": "module-10",
   "version": "1.0.0",
-  "description": "",
+  "description": "AS a freelance web developer I NEED to generate a simple logo for my projects SO THAT I don't have to pay a graphic designer",
   "main": "index.js",
   "directories": {
     "example": "examples",
@@ -22,8 +22,10 @@
   },
   "homepage": "https://github.com/Homelesscats/SVG-Logo-Maker-MOD10#readme",
   "dependencies": {
-    "inquirer": "^9.2.7",
+    "inquirer": "^8.2.4",
     "svg-builder": "^2.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
